@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fengbo.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.fengbo.bean.User">
+		<id column="us_id" property="usId" jdbcType="VARCHAR" />
+		<result column="us_username" property="usUsername" jdbcType="VARCHAR" />
+		<result column="us_password" property="usPassword" jdbcType="VARCHAR" />
+		<result column="us_phone" property="usPhone" jdbcType="VARCHAR" />
+		<result column="us_code" property="usCode" jdbcType="VARCHAR" />
+		<result column="us_realname" property="usRealname" jdbcType="VARCHAR" />
+		<result column="us_sex" property="usSex" jdbcType="VARCHAR" />
+		<result column="us_entic" property="usEntic" jdbcType="VARCHAR" />
+		<result column="us_birthday" property="usBirthday" jdbcType="VARCHAR" />
+		<result column="us_address" property="usAddress" jdbcType="VARCHAR" />
+		<result column="us_idcard" property="usIdcard" jdbcType="VARCHAR" />
+		<result column="us_face_img_addr" property="usFaceImgAddr"
+			jdbcType="VARCHAR" />
+		<result column="us_idcard_img_addr" property="usIdcardImgAddr"
+			jdbcType="VARCHAR" />
+		<result column="us_subm_img_sign" property="usSubmImgSign"
+			jdbcType="INTEGER" />
+		<result column="us_checkpass_sign" property="usCheckpassSign"
+			jdbcType="INTEGER" />
+		<result column="us_create_time" property="usCreateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="us_update_time" property="usUpdateTime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		us_id, us_username, us_password, us_phone, us_code,
+		us_realname, us_sex,
+		us_entic,
+		us_birthday, us_address, us_idcard,
+		us_face_img_addr, us_idcard_img_addr,
+		us_subm_img_sign,
+		us_checkpass_sign, us_create_time, us_update_time
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.fengbo.bean.UserExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_id = #{usId,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from user
+		where us_id = #{usId,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.fengbo.bean.UserExample">
+		delete from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.fengbo.bean.User">
+		insert into user (us_id,
+		us_username, us_password,
+		us_phone, us_code, us_realname,
+		us_sex,
+		us_entic, us_birthday,
+		us_address, us_idcard, us_face_img_addr,
+		us_idcard_img_addr, us_subm_img_sign, us_checkpass_sign,
+		us_create_time, us_update_time)
+		values (#{usId,jdbcType=VARCHAR},
+		#{usUsername,jdbcType=VARCHAR},
+		#{usPassword,jdbcType=VARCHAR},
+		#{usPhone,jdbcType=VARCHAR}, #{usCode,jdbcType=VARCHAR},
+		#{usRealname,jdbcType=VARCHAR},
+		#{usSex,jdbcType=VARCHAR},
+		#{usEntic,jdbcType=VARCHAR},
+		#{usBirthday,jdbcType=VARCHAR},
+		#{usAddress,jdbcType=VARCHAR}, #{usIdcard,jdbcType=VARCHAR},
+		#{usFaceImgAddr,jdbcType=VARCHAR},
+		#{usIdcardImgAddr,jdbcType=VARCHAR},
+		0,
+		0,
+		#{usCreateTime,jdbcType=TIMESTAMP},
+		#{usUpdateTime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.fengbo.bean.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="usId != null">
+				us_id,
+			</if>
+			<if test="usUsername != null">
+				us_username,
+			</if>
+			<if test="usPassword != null">
+				us_password,
+			</if>
+			<if test="usPhone != null">
+				us_phone,
+			</if>
+			<if test="usCode != null">
+				us_code,
+			</if>
+			<if test="usRealname != null">
+				us_realname,
+			</if>
+			<if test="usSex != null">
+				us_sex,
+			</if>
+			<if test="usEntic != null">
+				us_entic,
+			</if>
+			<if test="usBirthday != null">
+				us_birthday,
+			</if>
+			<if test="usAddress != null">
+				us_address,
+			</if>
+			<if test="usIdcard != null">
+				us_idcard,
+			</if>
+			<if test="usFaceImgAddr != null">
+				us_face_img_addr,
+			</if>
+			<if test="usIdcardImgAddr != null">
+				us_idcard_img_addr,
+			</if>
+			<if test="usSubmImgSign != null">
+				us_subm_img_sign,
+			</if>
+			<if test="usCheckpassSign != null">
+				us_checkpass_sign,
+			</if>
+			<if test="usCreateTime != null">
+				us_create_time,
+			</if>
+			<if test="usUpdateTime != null">
+				us_update_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="usId != null">
+				#{usId,jdbcType=VARCHAR},
+			</if>
+			<if test="usUsername != null">
+				#{usUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="usPassword != null">
+				#{usPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="usPhone != null">
+				#{usPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="usCode != null">
+				#{usCode,jdbcType=VARCHAR},
+			</if>
+			<if test="usRealname != null">
+				#{usRealname,jdbcType=VARCHAR},
+			</if>
+			<if test="usSex != null">
+				#{usSex,jdbcType=VARCHAR},
+			</if>
+			<if test="usEntic != null">
+				#{usEntic,jdbcType=VARCHAR},
+			</if>
+			<if test="usBirthday != null">
+				#{usBirthday,jdbcType=VARCHAR},
+			</if>
+			<if test="usAddress != null">
+				#{usAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="usIdcard != null">
+				#{usIdcard,jdbcType=VARCHAR},
+			</if>
+			<if test="usFaceImgAddr != null">
+				#{usFaceImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="usIdcardImgAddr != null">
+				#{usIdcardImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="usSubmImgSign != null">
+				#{usSubmImgSign,jdbcType=INTEGER},
+			</if>
+			<if test="usCheckpassSign != null">
+				#{usCheckpassSign,jdbcType=INTEGER},
+			</if>
+			<if test="usCreateTime != null">
+				#{usCreateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="usUpdateTime != null">
+				#{usUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.fengbo.bean.UserExample"
+		resultType="java.lang.Integer">
+		select count(*) from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update user
+		<set>
+			<if test="record.usId != null">
+				us_id = #{record.usId,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usUsername != null">
+				us_username = #{record.usUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usPassword != null">
+				us_password = #{record.usPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usPhone != null">
+				us_phone = #{record.usPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usCode != null">
+				us_code = #{record.usCode,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usRealname != null">
+				us_realname = #{record.usRealname,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usSex != null">
+				us_sex = #{record.usSex,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usEntic != null">
+				us_entic = #{record.usEntic,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usBirthday != null">
+				us_birthday = #{record.usBirthday,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usAddress != null">
+				us_address = #{record.usAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usIdcard != null">
+				us_idcard = #{record.usIdcard,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usFaceImgAddr != null">
+				us_face_img_addr =
+				#{record.usFaceImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usIdcardImgAddr != null">
+				us_idcard_img_addr =
+				#{record.usIdcardImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usSubmImgSign != null">
+				us_subm_img_sign =
+				#{record.usSubmImgSign,jdbcType=INTEGER},
+			</if>
+			<if test="record.usCheckpassSign != null">
+				us_checkpass_sign =
+				#{record.usCheckpassSign,jdbcType=INTEGER},
+			</if>
+			<if test="record.usCreateTime != null">
+				us_create_time =
+				#{record.usCreateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.usUpdateTime != null">
+				us_update_time =
+				#{record.usUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update user
+		set us_id = #{record.usId,jdbcType=VARCHAR},
+		us_username =
+		#{record.usUsername,jdbcType=VARCHAR},
+		us_password =
+		#{record.usPassword,jdbcType=VARCHAR},
+		us_phone =
+		#{record.usPhone,jdbcType=VARCHAR},
+		us_code =
+		#{record.usCode,jdbcType=VARCHAR},
+		us_realname =
+		#{record.usRealname,jdbcType=VARCHAR},
+		us_sex =
+		#{record.usSex,jdbcType=VARCHAR},
+		us_entic =
+		#{record.usEntic,jdbcType=VARCHAR},
+		us_birthday =
+		#{record.usBirthday,jdbcType=VARCHAR},
+		us_address =
+		#{record.usAddress,jdbcType=VARCHAR},
+		us_idcard =
+		#{record.usIdcard,jdbcType=VARCHAR},
+		us_face_img_addr =
+		#{record.usFaceImgAddr,jdbcType=VARCHAR},
+		us_idcard_img_addr =
+		#{record.usIdcardImgAddr,jdbcType=VARCHAR},
+		us_subm_img_sign =
+		#{record.usSubmImgSign,jdbcType=INTEGER},
+		us_checkpass_sign =
+		#{record.usCheckpassSign,jdbcType=INTEGER},
+		us_create_time =
+		#{record.usCreateTime,jdbcType=TIMESTAMP},
+		us_update_time =
+		#{record.usUpdateTime,jdbcType=TIMESTAMP}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.fengbo.bean.User">
+		update user
+		<set>
+			<if test="usUsername != null">
+				us_username = #{usUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="usPassword != null">
+				us_password = #{usPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="usPhone != null">
+				us_phone = #{usPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="usCode != null">
+				us_code = #{usCode,jdbcType=VARCHAR},
+			</if>
+			<if test="usRealname != null">
+				us_realname = #{usRealname,jdbcType=VARCHAR},
+			</if>
+			<if test="usSex != null">
+				us_sex = #{usSex,jdbcType=VARCHAR},
+			</if>
+			<if test="usEntic != null">
+				us_entic = #{usEntic,jdbcType=VARCHAR},
+			</if>
+			<if test="usBirthday != null">
+				us_birthday = #{usBirthday,jdbcType=VARCHAR},
+			</if>
+			<if test="usAddress != null">
+				us_address = #{usAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="usIdcard != null">
+				us_idcard = #{usIdcard,jdbcType=VARCHAR},
+			</if>
+			<if test="usFaceImgAddr != null">
+				us_face_img_addr = #{usFaceImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="usIdcardImgAddr != null">
+				us_idcard_img_addr = #{usIdcardImgAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="usSubmImgSign != null">
+				us_subm_img_sign = #{usSubmImgSign,jdbcType=INTEGER},
+			</if>
+			<if test="usCheckpassSign != null">
+				us_checkpass_sign = #{usCheckpassSign,jdbcType=INTEGER},
+			</if>
+			<if test="usCreateTime != null">
+				us_create_time = #{usCreateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="usUpdateTime != null">
+				us_update_time = #{usUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where us_id = #{usId,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.fengbo.bean.User">
+		update user
+		set
+		us_username = #{usUsername,jdbcType=VARCHAR},
+		us_password =
+		#{usPassword,jdbcType=VARCHAR},
+		us_phone = #{usPhone,jdbcType=VARCHAR},
+		us_code = #{usCode,jdbcType=VARCHAR},
+		us_realname =
+		#{usRealname,jdbcType=VARCHAR},
+		us_sex = #{usSex,jdbcType=VARCHAR},
+		us_entic = #{usEntic,jdbcType=VARCHAR},
+		us_birthday =
+		#{usBirthday,jdbcType=VARCHAR},
+		us_address =
+		#{usAddress,jdbcType=VARCHAR},
+		us_idcard =
+		#{usIdcard,jdbcType=VARCHAR},
+		us_face_img_addr =
+		#{usFaceImgAddr,jdbcType=VARCHAR},
+		us_idcard_img_addr =
+		#{usIdcardImgAddr,jdbcType=VARCHAR},
+		us_subm_img_sign =
+		#{usSubmImgSign,jdbcType=INTEGER},
+		us_checkpass_sign =
+		#{usCheckpassSign,jdbcType=INTEGER},
+		us_create_time =
+		#{usCreateTime,jdbcType=TIMESTAMP},
+		us_update_time =
+		#{usUpdateTime,jdbcType=TIMESTAMP}
+		where us_id =
+		#{usId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="userLogin" resultMap="BaseResultMap" parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_phone = #{usPhone,jdbcType=VARCHAR}
+		and us_password =
+		#{usPassword,jdbcType=VARCHAR}
+	</select>
+
+	<update id="insertSignById" parameterType="String">
+		update user set
+		us_subm_img_sign=1, us_checkpass_sign = 0 where
+		us_id=#{usId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="selectBySign" parameterType="int" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_subm_img_sign = 1 and us_checkpass_sign = 0
+	</select>
+
+	<update id="insertPassSign" parameterType="String">
+		update user set
+		us_checkpass_sign=1,
+		us_realname = #{usRealname,jdbcType=VARCHAR},
+		us_sex = #{usSex,jdbcType=VARCHAR},
+		us_entic =
+		#{usEntic,jdbcType=VARCHAR},
+		us_birthday =
+		#{usBirthday,jdbcType=VARCHAR},
+		us_address =
+		#{usAddress,jdbcType=VARCHAR},
+		us_idcard =
+		#{usIdcard,jdbcType=VARCHAR},
+		us_face_img_addr =
+		#{usFaceImgAddr,jdbcType=VARCHAR},
+		us_idcard_img_addr =
+		#{usIdcardImgAddr,jdbcType=VARCHAR}
+		where
+		us_id=#{usId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="insertNopassSign" parameterType="String">
+		update user set
+		us_checkpass_sign=2
+		where
+		us_id=#{usId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="noCheck" parameterType="String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_subm_img_sign = 0 and us_id=#{usId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="checkWait" parameterType="String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_subm_img_sign = 1 and us_checkpass_sign = 0 and
+		us_id=#{usId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="checkPass" parameterType="String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_subm_img_sign = 1 and us_checkpass_sign = 1 and
+		us_id=#{usId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="checkNopass" parameterType="String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where us_subm_img_sign = 1 and us_checkpass_sign = 2 and
+		us_id=#{usId,jdbcType=VARCHAR}
+	</select>
+
+
+
+
+</mapper>
