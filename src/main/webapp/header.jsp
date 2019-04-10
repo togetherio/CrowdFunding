@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +11,7 @@
 	<div id="header">
 		<div class="heade-con">
 			<div class="logo">
-				<a href=""><img src="${pageContext.request.contextPath}/images/LOGO.png" /></a>
+				<a href=""><img src="imgs/LOGO.png" /></a>
 			</div>
 			<div class="nav posa">
 				<ul>
@@ -19,7 +20,7 @@
 					<li><a href="gyzc_list.jsp">公益众筹</a></li>
 					<li><a href="faq_list.jsp">常见问题</a></li>
 					<li><a href="message_list.jsp">众筹资讯</a></li>
-					<li><a href="new_product.jsp" style="">发布项目</a></li>
+					<li><a href="issue_new_project.jsp">发布项目</a></li>
 				</ul>
 			</div>
 			<div class="search">
@@ -37,7 +38,8 @@
 				</c:if>
 				<c:if test="${!empty sessionScope.activeuser }">
 					<li style="color: white">欢迎,${sessionScope.activeuser.usUsername}
-					<a href="quit">退出</a><a href="logout">注销</a><a href="smrz.jsp">我的</a></li>
+						<a href="quit">退出</a><a href="logout">注销</a><a href="smrz.jsp">我的</a>
+					</li>
 				</c:if>
 
 			</div>

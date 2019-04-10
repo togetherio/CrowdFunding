@@ -545,6 +545,15 @@
 		where us_subm_img_sign = 1 and us_checkpass_sign = 2 and
 		us_id=#{usId,jdbcType=VARCHAR}
 	</select>
+	
+	<update id="changeInfo" parameterType="String">
+		update user set
+		us_username = #{usUsername,jdbcType=VARCHAR},
+		us_password = #{usPassword,jdbcType=VARCHAR},
+		us_phone = #{usPhone,jdbcType=VARCHAR}
+		where
+		us_id=#{usId,jdbcType=VARCHAR}
+	</update>
 
 
 

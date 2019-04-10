@@ -142,52 +142,62 @@ public class ProjectsExample {
             return (Criteria) this;
         }
 
-        public Criteria andPsIdEqualTo(Integer value) {
+        public Criteria andPsIdEqualTo(String value) {
             addCriterion("ps_id =", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdNotEqualTo(Integer value) {
+        public Criteria andPsIdNotEqualTo(String value) {
             addCriterion("ps_id <>", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdGreaterThan(Integer value) {
+        public Criteria andPsIdGreaterThan(String value) {
             addCriterion("ps_id >", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPsIdGreaterThanOrEqualTo(String value) {
             addCriterion("ps_id >=", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdLessThan(Integer value) {
+        public Criteria andPsIdLessThan(String value) {
             addCriterion("ps_id <", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdLessThanOrEqualTo(Integer value) {
+        public Criteria andPsIdLessThanOrEqualTo(String value) {
             addCriterion("ps_id <=", value, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdIn(List<Integer> values) {
+        public Criteria andPsIdLike(String value) {
+            addCriterion("ps_id like", value, "psId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIdNotLike(String value) {
+            addCriterion("ps_id not like", value, "psId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIdIn(List<String> values) {
             addCriterion("ps_id in", values, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdNotIn(List<Integer> values) {
+        public Criteria andPsIdNotIn(List<String> values) {
             addCriterion("ps_id not in", values, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdBetween(Integer value1, Integer value2) {
+        public Criteria andPsIdBetween(String value1, String value2) {
             addCriterion("ps_id between", value1, value2, "psId");
             return (Criteria) this;
         }
 
-        public Criteria andPsIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andPsIdNotBetween(String value1, String value2) {
             addCriterion("ps_id not between", value1, value2, "psId");
             return (Criteria) this;
         }
@@ -382,6 +392,146 @@ public class ProjectsExample {
             return (Criteria) this;
         }
 
+        public Criteria andPsPatientRelationshipIsNull() {
+            addCriterion("ps_patient_relationship is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipIsNotNull() {
+            addCriterion("ps_patient_relationship is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipEqualTo(String value) {
+            addCriterion("ps_patient_relationship =", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipNotEqualTo(String value) {
+            addCriterion("ps_patient_relationship <>", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipGreaterThan(String value) {
+            addCriterion("ps_patient_relationship >", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipGreaterThanOrEqualTo(String value) {
+            addCriterion("ps_patient_relationship >=", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipLessThan(String value) {
+            addCriterion("ps_patient_relationship <", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipLessThanOrEqualTo(String value) {
+            addCriterion("ps_patient_relationship <=", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipLike(String value) {
+            addCriterion("ps_patient_relationship like", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipNotLike(String value) {
+            addCriterion("ps_patient_relationship not like", value, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipIn(List<String> values) {
+            addCriterion("ps_patient_relationship in", values, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipNotIn(List<String> values) {
+            addCriterion("ps_patient_relationship not in", values, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipBetween(String value1, String value2) {
+            addCriterion("ps_patient_relationship between", value1, value2, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsPatientRelationshipNotBetween(String value1, String value2) {
+            addCriterion("ps_patient_relationship not between", value1, value2, "psPatientRelationship");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameIsNull() {
+            addCriterion("ps_illness_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameIsNotNull() {
+            addCriterion("ps_illness_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameEqualTo(String value) {
+            addCriterion("ps_illness_name =", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameNotEqualTo(String value) {
+            addCriterion("ps_illness_name <>", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameGreaterThan(String value) {
+            addCriterion("ps_illness_name >", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameGreaterThanOrEqualTo(String value) {
+            addCriterion("ps_illness_name >=", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameLessThan(String value) {
+            addCriterion("ps_illness_name <", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameLessThanOrEqualTo(String value) {
+            addCriterion("ps_illness_name <=", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameLike(String value) {
+            addCriterion("ps_illness_name like", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameNotLike(String value) {
+            addCriterion("ps_illness_name not like", value, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameIn(List<String> values) {
+            addCriterion("ps_illness_name in", values, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameNotIn(List<String> values) {
+            addCriterion("ps_illness_name not in", values, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameBetween(String value1, String value2) {
+            addCriterion("ps_illness_name between", value1, value2, "psIllnessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsIllnessNameNotBetween(String value1, String value2) {
+            addCriterion("ps_illness_name not between", value1, value2, "psIllnessName");
+            return (Criteria) this;
+        }
+
         public Criteria andPsNameIsNull() {
             addCriterion("ps_name is null");
             return (Criteria) this;
@@ -452,73 +602,143 @@ public class ProjectsExample {
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressIsNull() {
-            addCriterion("ps_pictureaddress is null");
+        public Criteria andPaImgNameIsNull() {
+            addCriterion("pa_img_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressIsNotNull() {
-            addCriterion("ps_pictureaddress is not null");
+        public Criteria andPaImgNameIsNotNull() {
+            addCriterion("pa_img_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressEqualTo(String value) {
-            addCriterion("ps_pictureaddress =", value, "psPictureaddress");
+        public Criteria andPaImgNameEqualTo(String value) {
+            addCriterion("pa_img_name =", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressNotEqualTo(String value) {
-            addCriterion("ps_pictureaddress <>", value, "psPictureaddress");
+        public Criteria andPaImgNameNotEqualTo(String value) {
+            addCriterion("pa_img_name <>", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressGreaterThan(String value) {
-            addCriterion("ps_pictureaddress >", value, "psPictureaddress");
+        public Criteria andPaImgNameGreaterThan(String value) {
+            addCriterion("pa_img_name >", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_pictureaddress >=", value, "psPictureaddress");
+        public Criteria andPaImgNameGreaterThanOrEqualTo(String value) {
+            addCriterion("pa_img_name >=", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressLessThan(String value) {
-            addCriterion("ps_pictureaddress <", value, "psPictureaddress");
+        public Criteria andPaImgNameLessThan(String value) {
+            addCriterion("pa_img_name <", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressLessThanOrEqualTo(String value) {
-            addCriterion("ps_pictureaddress <=", value, "psPictureaddress");
+        public Criteria andPaImgNameLessThanOrEqualTo(String value) {
+            addCriterion("pa_img_name <=", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressLike(String value) {
-            addCriterion("ps_pictureaddress like", value, "psPictureaddress");
+        public Criteria andPaImgNameLike(String value) {
+            addCriterion("pa_img_name like", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressNotLike(String value) {
-            addCriterion("ps_pictureaddress not like", value, "psPictureaddress");
+        public Criteria andPaImgNameNotLike(String value) {
+            addCriterion("pa_img_name not like", value, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressIn(List<String> values) {
-            addCriterion("ps_pictureaddress in", values, "psPictureaddress");
+        public Criteria andPaImgNameIn(List<String> values) {
+            addCriterion("pa_img_name in", values, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressNotIn(List<String> values) {
-            addCriterion("ps_pictureaddress not in", values, "psPictureaddress");
+        public Criteria andPaImgNameNotIn(List<String> values) {
+            addCriterion("pa_img_name not in", values, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressBetween(String value1, String value2) {
-            addCriterion("ps_pictureaddress between", value1, value2, "psPictureaddress");
+        public Criteria andPaImgNameBetween(String value1, String value2) {
+            addCriterion("pa_img_name between", value1, value2, "paImgName");
             return (Criteria) this;
         }
 
-        public Criteria andPsPictureaddressNotBetween(String value1, String value2) {
-            addCriterion("ps_pictureaddress not between", value1, value2, "psPictureaddress");
+        public Criteria andPaImgNameNotBetween(String value1, String value2) {
+            addCriterion("pa_img_name not between", value1, value2, "paImgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryIsNull() {
+            addCriterion("ps_story is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryIsNotNull() {
+            addCriterion("ps_story is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryEqualTo(String value) {
+            addCriterion("ps_story =", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryNotEqualTo(String value) {
+            addCriterion("ps_story <>", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryGreaterThan(String value) {
+            addCriterion("ps_story >", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryGreaterThanOrEqualTo(String value) {
+            addCriterion("ps_story >=", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryLessThan(String value) {
+            addCriterion("ps_story <", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryLessThanOrEqualTo(String value) {
+            addCriterion("ps_story <=", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryLike(String value) {
+            addCriterion("ps_story like", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryNotLike(String value) {
+            addCriterion("ps_story not like", value, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryIn(List<String> values) {
+            addCriterion("ps_story in", values, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryNotIn(List<String> values) {
+            addCriterion("ps_story not in", values, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryBetween(String value1, String value2) {
+            addCriterion("ps_story between", value1, value2, "psStory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsStoryNotBetween(String value1, String value2) {
+            addCriterion("ps_story not between", value1, value2, "psStory");
             return (Criteria) this;
         }
 
@@ -702,266 +922,6 @@ public class ProjectsExample {
             return (Criteria) this;
         }
 
-        public Criteria andPsIshotIsNull() {
-            addCriterion("ps_ishot is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotIsNotNull() {
-            addCriterion("ps_ishot is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotEqualTo(Integer value) {
-            addCriterion("ps_ishot =", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotNotEqualTo(Integer value) {
-            addCriterion("ps_ishot <>", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotGreaterThan(Integer value) {
-            addCriterion("ps_ishot >", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ps_ishot >=", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotLessThan(Integer value) {
-            addCriterion("ps_ishot <", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotLessThanOrEqualTo(Integer value) {
-            addCriterion("ps_ishot <=", value, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotIn(List<Integer> values) {
-            addCriterion("ps_ishot in", values, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotNotIn(List<Integer> values) {
-            addCriterion("ps_ishot not in", values, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotBetween(Integer value1, Integer value2) {
-            addCriterion("ps_ishot between", value1, value2, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsIshotNotBetween(Integer value1, Integer value2) {
-            addCriterion("ps_ishot not between", value1, value2, "psIshot");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateIsNull() {
-            addCriterion("ps_date is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateIsNotNull() {
-            addCriterion("ps_date is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_date =", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_date <>", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("ps_date >", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_date >=", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateLessThan(Date value) {
-            addCriterionForJDBCDate("ps_date <", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_date <=", value, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateIn(List<Date> values) {
-            addCriterionForJDBCDate("ps_date in", values, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("ps_date not in", values, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ps_date between", value1, value2, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ps_date not between", value1, value2, "psDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressIsNull() {
-            addCriterion("ps_address is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressIsNotNull() {
-            addCriterion("ps_address is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressEqualTo(String value) {
-            addCriterion("ps_address =", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressNotEqualTo(String value) {
-            addCriterion("ps_address <>", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressGreaterThan(String value) {
-            addCriterion("ps_address >", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_address >=", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressLessThan(String value) {
-            addCriterion("ps_address <", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressLessThanOrEqualTo(String value) {
-            addCriterion("ps_address <=", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressLike(String value) {
-            addCriterion("ps_address like", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressNotLike(String value) {
-            addCriterion("ps_address not like", value, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressIn(List<String> values) {
-            addCriterion("ps_address in", values, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressNotIn(List<String> values) {
-            addCriterion("ps_address not in", values, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressBetween(String value1, String value2) {
-            addCriterion("ps_address between", value1, value2, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAddressNotBetween(String value1, String value2) {
-            addCriterion("ps_address not between", value1, value2, "psAddress");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalIsNull() {
-            addCriterion("ps_goal is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalIsNotNull() {
-            addCriterion("ps_goal is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalEqualTo(String value) {
-            addCriterion("ps_goal =", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalNotEqualTo(String value) {
-            addCriterion("ps_goal <>", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalGreaterThan(String value) {
-            addCriterion("ps_goal >", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_goal >=", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalLessThan(String value) {
-            addCriterion("ps_goal <", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalLessThanOrEqualTo(String value) {
-            addCriterion("ps_goal <=", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalLike(String value) {
-            addCriterion("ps_goal like", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalNotLike(String value) {
-            addCriterion("ps_goal not like", value, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalIn(List<String> values) {
-            addCriterion("ps_goal in", values, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalNotIn(List<String> values) {
-            addCriterion("ps_goal not in", values, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalBetween(String value1, String value2) {
-            addCriterion("ps_goal between", value1, value2, "psGoal");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsGoalNotBetween(String value1, String value2) {
-            addCriterion("ps_goal not between", value1, value2, "psGoal");
-            return (Criteria) this;
-        }
-
         public Criteria andPsDaysIsNull() {
             addCriterion("ps_days is null");
             return (Criteria) this;
@@ -1022,353 +982,63 @@ public class ProjectsExample {
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoIsNull() {
-            addCriterion("ps_video is null");
+        public Criteria andPsIshotIsNull() {
+            addCriterion("ps_ishot is null");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoIsNotNull() {
-            addCriterion("ps_video is not null");
+        public Criteria andPsIshotIsNotNull() {
+            addCriterion("ps_ishot is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoEqualTo(String value) {
-            addCriterion("ps_video =", value, "psVideo");
+        public Criteria andPsIshotEqualTo(Integer value) {
+            addCriterion("ps_ishot =", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoNotEqualTo(String value) {
-            addCriterion("ps_video <>", value, "psVideo");
+        public Criteria andPsIshotNotEqualTo(Integer value) {
+            addCriterion("ps_ishot <>", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoGreaterThan(String value) {
-            addCriterion("ps_video >", value, "psVideo");
+        public Criteria andPsIshotGreaterThan(Integer value) {
+            addCriterion("ps_ishot >", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_video >=", value, "psVideo");
+        public Criteria andPsIshotGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ps_ishot >=", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoLessThan(String value) {
-            addCriterion("ps_video <", value, "psVideo");
+        public Criteria andPsIshotLessThan(Integer value) {
+            addCriterion("ps_ishot <", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoLessThanOrEqualTo(String value) {
-            addCriterion("ps_video <=", value, "psVideo");
+        public Criteria andPsIshotLessThanOrEqualTo(Integer value) {
+            addCriterion("ps_ishot <=", value, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoLike(String value) {
-            addCriterion("ps_video like", value, "psVideo");
+        public Criteria andPsIshotIn(List<Integer> values) {
+            addCriterion("ps_ishot in", values, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoNotLike(String value) {
-            addCriterion("ps_video not like", value, "psVideo");
+        public Criteria andPsIshotNotIn(List<Integer> values) {
+            addCriterion("ps_ishot not in", values, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoIn(List<String> values) {
-            addCriterion("ps_video in", values, "psVideo");
+        public Criteria andPsIshotBetween(Integer value1, Integer value2) {
+            addCriterion("ps_ishot between", value1, value2, "psIshot");
             return (Criteria) this;
         }
 
-        public Criteria andPsVideoNotIn(List<String> values) {
-            addCriterion("ps_video not in", values, "psVideo");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsVideoBetween(String value1, String value2) {
-            addCriterion("ps_video between", value1, value2, "psVideo");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsVideoNotBetween(String value1, String value2) {
-            addCriterion("ps_video not between", value1, value2, "psVideo");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryIsNull() {
-            addCriterion("ps_story is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryIsNotNull() {
-            addCriterion("ps_story is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryEqualTo(String value) {
-            addCriterion("ps_story =", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryNotEqualTo(String value) {
-            addCriterion("ps_story <>", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryGreaterThan(String value) {
-            addCriterion("ps_story >", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_story >=", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryLessThan(String value) {
-            addCriterion("ps_story <", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryLessThanOrEqualTo(String value) {
-            addCriterion("ps_story <=", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryLike(String value) {
-            addCriterion("ps_story like", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryNotLike(String value) {
-            addCriterion("ps_story not like", value, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryIn(List<String> values) {
-            addCriterion("ps_story in", values, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryNotIn(List<String> values) {
-            addCriterion("ps_story not in", values, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryBetween(String value1, String value2) {
-            addCriterion("ps_story between", value1, value2, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsStoryNotBetween(String value1, String value2) {
-            addCriterion("ps_story not between", value1, value2, "psStory");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportIsNull() {
-            addCriterion("ps_support is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportIsNotNull() {
-            addCriterion("ps_support is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportEqualTo(String value) {
-            addCriterion("ps_support =", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportNotEqualTo(String value) {
-            addCriterion("ps_support <>", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportGreaterThan(String value) {
-            addCriterion("ps_support >", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_support >=", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportLessThan(String value) {
-            addCriterion("ps_support <", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportLessThanOrEqualTo(String value) {
-            addCriterion("ps_support <=", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportLike(String value) {
-            addCriterion("ps_support like", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportNotLike(String value) {
-            addCriterion("ps_support not like", value, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportIn(List<String> values) {
-            addCriterion("ps_support in", values, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportNotIn(List<String> values) {
-            addCriterion("ps_support not in", values, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportBetween(String value1, String value2) {
-            addCriterion("ps_support between", value1, value2, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsSupportNotBetween(String value1, String value2) {
-            addCriterion("ps_support not between", value1, value2, "psSupport");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayIsNull() {
-            addCriterion("ps_repay is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayIsNotNull() {
-            addCriterion("ps_repay is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayEqualTo(String value) {
-            addCriterion("ps_repay =", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayNotEqualTo(String value) {
-            addCriterion("ps_repay <>", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayGreaterThan(String value) {
-            addCriterion("ps_repay >", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_repay >=", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayLessThan(String value) {
-            addCriterion("ps_repay <", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayLessThanOrEqualTo(String value) {
-            addCriterion("ps_repay <=", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayLike(String value) {
-            addCriterion("ps_repay like", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayNotLike(String value) {
-            addCriterion("ps_repay not like", value, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayIn(List<String> values) {
-            addCriterion("ps_repay in", values, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayNotIn(List<String> values) {
-            addCriterion("ps_repay not in", values, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayBetween(String value1, String value2) {
-            addCriterion("ps_repay between", value1, value2, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsRepayNotBetween(String value1, String value2) {
-            addCriterion("ps_repay not between", value1, value2, "psRepay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeIsNull() {
-            addCriterion("ps_aboutme is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeIsNotNull() {
-            addCriterion("ps_aboutme is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeEqualTo(String value) {
-            addCriterion("ps_aboutme =", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeNotEqualTo(String value) {
-            addCriterion("ps_aboutme <>", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeGreaterThan(String value) {
-            addCriterion("ps_aboutme >", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeGreaterThanOrEqualTo(String value) {
-            addCriterion("ps_aboutme >=", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeLessThan(String value) {
-            addCriterion("ps_aboutme <", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeLessThanOrEqualTo(String value) {
-            addCriterion("ps_aboutme <=", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeLike(String value) {
-            addCriterion("ps_aboutme like", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeNotLike(String value) {
-            addCriterion("ps_aboutme not like", value, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeIn(List<String> values) {
-            addCriterion("ps_aboutme in", values, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeNotIn(List<String> values) {
-            addCriterion("ps_aboutme not in", values, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeBetween(String value1, String value2) {
-            addCriterion("ps_aboutme between", value1, value2, "psAboutme");
-            return (Criteria) this;
-        }
-
-        public Criteria andPsAboutmeNotBetween(String value1, String value2) {
-            addCriterion("ps_aboutme not between", value1, value2, "psAboutme");
+        public Criteria andPsIshotNotBetween(Integer value1, Integer value2) {
+            addCriterion("ps_ishot not between", value1, value2, "psIshot");
             return (Criteria) this;
         }
 
@@ -1383,52 +1053,52 @@ public class ProjectsExample {
         }
 
         public Criteria andPsStarttimeEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_starttime =", value, "psStarttime");
+            addCriterion("ps_starttime =", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_starttime <>", value, "psStarttime");
+            addCriterion("ps_starttime <>", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("ps_starttime >", value, "psStarttime");
+            addCriterion("ps_starttime >", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_starttime >=", value, "psStarttime");
+            addCriterion("ps_starttime >=", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeLessThan(Date value) {
-            addCriterionForJDBCDate("ps_starttime <", value, "psStarttime");
+            addCriterion("ps_starttime <", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ps_starttime <=", value, "psStarttime");
+            addCriterion("ps_starttime <=", value, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeIn(List<Date> values) {
-            addCriterionForJDBCDate("ps_starttime in", values, "psStarttime");
+            addCriterion("ps_starttime in", values, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("ps_starttime not in", values, "psStarttime");
+            addCriterion("ps_starttime not in", values, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ps_starttime between", value1, value2, "psStarttime");
+            addCriterion("ps_starttime between", value1, value2, "psStarttime");
             return (Criteria) this;
         }
 
         public Criteria andPsStarttimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ps_starttime not between", value1, value2, "psStarttime");
+            addCriterion("ps_starttime not between", value1, value2, "psStarttime");
             return (Criteria) this;
         }
 
@@ -1489,6 +1159,76 @@ public class ProjectsExample {
 
         public Criteria andPsEndtimeNotBetween(Date value1, Date value2) {
             addCriterionForJDBCDate("ps_endtime not between", value1, value2, "psEndtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignIsNull() {
+            addCriterion("ps_check_sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignIsNotNull() {
+            addCriterion("ps_check_sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignEqualTo(String value) {
+            addCriterion("ps_check_sign =", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignNotEqualTo(String value) {
+            addCriterion("ps_check_sign <>", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignGreaterThan(String value) {
+            addCriterion("ps_check_sign >", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignGreaterThanOrEqualTo(String value) {
+            addCriterion("ps_check_sign >=", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignLessThan(String value) {
+            addCriterion("ps_check_sign <", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignLessThanOrEqualTo(String value) {
+            addCriterion("ps_check_sign <=", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignLike(String value) {
+            addCriterion("ps_check_sign like", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignNotLike(String value) {
+            addCriterion("ps_check_sign not like", value, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignIn(List<String> values) {
+            addCriterion("ps_check_sign in", values, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignNotIn(List<String> values) {
+            addCriterion("ps_check_sign not in", values, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignBetween(String value1, String value2) {
+            addCriterion("ps_check_sign between", value1, value2, "psCheckSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andPsCheckSignNotBetween(String value1, String value2) {
+            addCriterion("ps_check_sign not between", value1, value2, "psCheckSign");
             return (Criteria) this;
         }
     }

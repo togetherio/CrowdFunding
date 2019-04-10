@@ -2,28 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fengbo.dao.ProjectsMapper">
 	<resultMap id="BaseResultMap" type="com.fengbo.bean.Projects">
-		<id column="ps_id" property="psId" jdbcType="INTEGER" />
+		<id column="ps_id" property="psId" jdbcType="VARCHAR" />
 		<result column="ps_us_id" property="psUsId" jdbcType="VARCHAR" />
 		<result column="ps_pst_id" property="psPstId" jdbcType="INTEGER" />
 		<result column="ps_state_id" property="psStateId" jdbcType="INTEGER" />
-		<result column="ps_name" property="psName" jdbcType="VARCHAR" />
-		<result column="ps_pictureaddress" property="psPictureaddress"
+		<result column="ps_patient_relationship" property="psPatientRelationship"
 			jdbcType="VARCHAR" />
+		<result column="ps_illness_name" property="psIllnessName"
+			jdbcType="VARCHAR" />
+		<result column="ps_name" property="psName" jdbcType="VARCHAR" />
+		<result column="pa_img_name" property="paImgName" jdbcType="VARCHAR" />
+		<result column="ps_story" property="psStory" jdbcType="VARCHAR" />
 		<result column="ps_money" property="psMoney" jdbcType="DOUBLE" />
 		<result column="ps_getmoney" property="psGetmoney" jdbcType="DOUBLE" />
 		<result column="ps_getpeople" property="psGetpeople" jdbcType="INTEGER" />
-		<result column="ps_ishot" property="psIshot" jdbcType="INTEGER" />
-		<result column="ps_date" property="psDate" jdbcType="DATE" />
-		<result column="ps_address" property="psAddress" jdbcType="VARCHAR" />
-		<result column="ps_goal" property="psGoal" jdbcType="VARCHAR" />
 		<result column="ps_days" property="psDays" jdbcType="INTEGER" />
-		<result column="ps_video" property="psVideo" jdbcType="VARCHAR" />
-		<result column="ps_story" property="psStory" jdbcType="VARCHAR" />
-		<result column="ps_support" property="psSupport" jdbcType="VARCHAR" />
-		<result column="ps_repay" property="psRepay" jdbcType="VARCHAR" />
-		<result column="ps_aboutme" property="psAboutme" jdbcType="VARCHAR" />
-		<result column="ps_starttime" property="psStarttime" jdbcType="DATE" />
+		<result column="ps_ishot" property="psIshot" jdbcType="INTEGER" />
+		<result column="ps_starttime" property="psStarttime" jdbcType="TIMESTAMP" />
 		<result column="ps_endtime" property="psEndtime" jdbcType="DATE" />
+		<result column="ps_check_sign" property="psCheckSign" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Example_Where_Clause">
 		<where>
@@ -39,7 +36,8 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value} and
+									and ${criterion.condition} #{criterion.value}
+									and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -71,7 +69,8 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value} and
+									and ${criterion.condition} #{criterion.value}
+									and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -89,10 +88,13 @@
 		</where>
 	</sql>
 	<sql id="Base_Column_List">
-		ps_id, ps_us_id, ps_pst_id, ps_state_id, ps_name, ps_pictureaddress,
-		ps_money, ps_getmoney,
-		ps_getpeople, ps_ishot, ps_date, ps_address, ps_goal, ps_days, ps_video, ps_story,
-		ps_support, ps_repay, ps_aboutme, ps_starttime, ps_endtime
+		ps_id, ps_us_id, ps_pst_id, ps_state_id,
+		ps_patient_relationship,
+		ps_illness_name,
+		ps_name, pa_img_name,
+		ps_story, ps_money, ps_getmoney, ps_getpeople, ps_days,
+		ps_ishot,
+		ps_starttime, ps_endtime, ps_check_sign
 	</sql>
 	<select id="selectByExample" resultMap="BaseResultMap"
 		parameterType="com.fengbo.bean.ProjectsExample">
@@ -110,15 +112,16 @@
 		</if>
 	</select>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-		parameterType="java.lang.Integer">
+		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from projects
-		where ps_id = #{psId,jdbcType=INTEGER}
+		where ps_id = #{psId,jdbcType=VARCHAR}
 	</select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from projects
-		where ps_id = #{psId,jdbcType=INTEGER}
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		projects
+		where ps_id = #{psId,jdbcType=VARCHAR}
 	</delete>
 	<delete id="deleteByExample" parameterType="com.fengbo.bean.ProjectsExample">
 		delete from projects
@@ -127,26 +130,29 @@
 		</if>
 	</delete>
 	<insert id="insert" parameterType="com.fengbo.bean.Projects">
-		insert into projects (ps_id, ps_us_id, ps_pst_id,
-		ps_state_id, ps_name, ps_pictureaddress,
-		ps_money, ps_getmoney, ps_getpeople,
-		ps_ishot, ps_date, ps_address,
-		ps_goal, ps_days, ps_video,
-		ps_story, ps_support, ps_repay,
-		ps_aboutme, ps_starttime, ps_endtime
-		)
-		values (#{psId,jdbcType=INTEGER}, #{psUsId,jdbcType=VARCHAR},
+		insert into projects (ps_id,
+		ps_us_id, ps_pst_id,
+		ps_state_id, ps_patient_relationship,
+		ps_illness_name,
+		ps_name, pa_img_name, ps_story,
+		ps_money, ps_getmoney,
+		ps_getpeople,
+		ps_days, ps_ishot, ps_starttime,
+		ps_endtime,
+		ps_check_sign)
+		values (#{psId,jdbcType=VARCHAR},
+		#{psUsId,jdbcType=VARCHAR},
 		#{psPstId,jdbcType=INTEGER},
-		#{psStateId,jdbcType=INTEGER}, #{psName,jdbcType=VARCHAR}, #{psPictureaddress,jdbcType=VARCHAR},
+		#{psStateId,jdbcType=INTEGER},
+		#{psPatientRelationship,jdbcType=VARCHAR},
+		#{psIllnessName,jdbcType=VARCHAR},
+		#{psName,jdbcType=VARCHAR},
+		#{paImgName,jdbcType=VARCHAR}, #{psStory,jdbcType=VARCHAR},
 		#{psMoney,jdbcType=DOUBLE}, #{psGetmoney,jdbcType=DOUBLE},
 		#{psGetpeople,jdbcType=INTEGER},
-		#{psIshot,jdbcType=INTEGER}, #{psDate,jdbcType=DATE}, #{psAddress,jdbcType=VARCHAR},
-		#{psGoal,jdbcType=VARCHAR}, #{psDays,jdbcType=INTEGER},
-		#{psVideo,jdbcType=VARCHAR},
-		#{psStory,jdbcType=VARCHAR}, #{psSupport,jdbcType=VARCHAR}, #{psRepay,jdbcType=VARCHAR},
-		#{psAboutme,jdbcType=VARCHAR}, #{psStarttime,jdbcType=DATE},
-		#{psEndtime,jdbcType=DATE}
-		)
+		#{psDays,jdbcType=INTEGER},
+		#{psIshot,jdbcType=INTEGER}, #{psStarttime,jdbcType=TIMESTAMP},
+		#{psEndtime,jdbcType=DATE}, #{psCheckSign,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="com.fengbo.bean.Projects">
 		insert into projects
@@ -163,11 +169,20 @@
 			<if test="psStateId != null">
 				ps_state_id,
 			</if>
+			<if test="psPatientRelationship != null">
+				ps_patient_relationship,
+			</if>
+			<if test="psIllnessName != null">
+				ps_illness_name,
+			</if>
 			<if test="psName != null">
 				ps_name,
 			</if>
-			<if test="psPictureaddress != null">
-				ps_pictureaddress,
+			<if test="paImgName != null">
+				pa_img_name,
+			</if>
+			<if test="psStory != null">
+				ps_story,
 			</if>
 			<if test="psMoney != null">
 				ps_money,
@@ -178,35 +193,11 @@
 			<if test="psGetpeople != null">
 				ps_getpeople,
 			</if>
-			<if test="psIshot != null">
-				ps_ishot,
-			</if>
-			<if test="psDate != null">
-				ps_date,
-			</if>
-			<if test="psAddress != null">
-				ps_address,
-			</if>
-			<if test="psGoal != null">
-				ps_goal,
-			</if>
 			<if test="psDays != null">
 				ps_days,
 			</if>
-			<if test="psVideo != null">
-				ps_video,
-			</if>
-			<if test="psStory != null">
-				ps_story,
-			</if>
-			<if test="psSupport != null">
-				ps_support,
-			</if>
-			<if test="psRepay != null">
-				ps_repay,
-			</if>
-			<if test="psAboutme != null">
-				ps_aboutme,
+			<if test="psIshot != null">
+				ps_ishot,
 			</if>
 			<if test="psStarttime != null">
 				ps_starttime,
@@ -214,10 +205,13 @@
 			<if test="psEndtime != null">
 				ps_endtime,
 			</if>
+			<if test="psCheckSign != null">
+				ps_check_sign,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="psId != null">
-				#{psId,jdbcType=INTEGER},
+				#{psId,jdbcType=VARCHAR},
 			</if>
 			<if test="psUsId != null">
 				#{psUsId,jdbcType=VARCHAR},
@@ -228,11 +222,20 @@
 			<if test="psStateId != null">
 				#{psStateId,jdbcType=INTEGER},
 			</if>
+			<if test="psPatientRelationship != null">
+				#{psPatientRelationship,jdbcType=VARCHAR},
+			</if>
+			<if test="psIllnessName != null">
+				#{psIllnessName,jdbcType=VARCHAR},
+			</if>
 			<if test="psName != null">
 				#{psName,jdbcType=VARCHAR},
 			</if>
-			<if test="psPictureaddress != null">
-				#{psPictureaddress,jdbcType=VARCHAR},
+			<if test="paImgName != null">
+				#{paImgName,jdbcType=VARCHAR},
+			</if>
+			<if test="psStory != null">
+				#{psStory,jdbcType=VARCHAR},
 			</if>
 			<if test="psMoney != null">
 				#{psMoney,jdbcType=DOUBLE},
@@ -243,41 +246,20 @@
 			<if test="psGetpeople != null">
 				#{psGetpeople,jdbcType=INTEGER},
 			</if>
-			<if test="psIshot != null">
-				#{psIshot,jdbcType=INTEGER},
-			</if>
-			<if test="psDate != null">
-				#{psDate,jdbcType=DATE},
-			</if>
-			<if test="psAddress != null">
-				#{psAddress,jdbcType=VARCHAR},
-			</if>
-			<if test="psGoal != null">
-				#{psGoal,jdbcType=VARCHAR},
-			</if>
 			<if test="psDays != null">
 				#{psDays,jdbcType=INTEGER},
 			</if>
-			<if test="psVideo != null">
-				#{psVideo,jdbcType=VARCHAR},
-			</if>
-			<if test="psStory != null">
-				#{psStory,jdbcType=VARCHAR},
-			</if>
-			<if test="psSupport != null">
-				#{psSupport,jdbcType=VARCHAR},
-			</if>
-			<if test="psRepay != null">
-				#{psRepay,jdbcType=VARCHAR},
-			</if>
-			<if test="psAboutme != null">
-				#{psAboutme,jdbcType=VARCHAR},
+			<if test="psIshot != null">
+				#{psIshot,jdbcType=INTEGER},
 			</if>
 			<if test="psStarttime != null">
-				#{psStarttime,jdbcType=DATE},
+				#{psStarttime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="psEndtime != null">
 				#{psEndtime,jdbcType=DATE},
+			</if>
+			<if test="psCheckSign != null">
+				#{psCheckSign,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -292,7 +274,7 @@
 		update projects
 		<set>
 			<if test="record.psId != null">
-				ps_id = #{record.psId,jdbcType=INTEGER},
+				ps_id = #{record.psId,jdbcType=VARCHAR},
 			</if>
 			<if test="record.psUsId != null">
 				ps_us_id = #{record.psUsId,jdbcType=VARCHAR},
@@ -303,11 +285,22 @@
 			<if test="record.psStateId != null">
 				ps_state_id = #{record.psStateId,jdbcType=INTEGER},
 			</if>
+			<if test="record.psPatientRelationship != null">
+				ps_patient_relationship =
+				#{record.psPatientRelationship,jdbcType=VARCHAR},
+			</if>
+			<if test="record.psIllnessName != null">
+				ps_illness_name =
+				#{record.psIllnessName,jdbcType=VARCHAR},
+			</if>
 			<if test="record.psName != null">
 				ps_name = #{record.psName,jdbcType=VARCHAR},
 			</if>
-			<if test="record.psPictureaddress != null">
-				ps_pictureaddress = #{record.psPictureaddress,jdbcType=VARCHAR},
+			<if test="record.paImgName != null">
+				pa_img_name = #{record.paImgName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.psStory != null">
+				ps_story = #{record.psStory,jdbcType=VARCHAR},
 			</if>
 			<if test="record.psMoney != null">
 				ps_money = #{record.psMoney,jdbcType=DOUBLE},
@@ -318,41 +311,20 @@
 			<if test="record.psGetpeople != null">
 				ps_getpeople = #{record.psGetpeople,jdbcType=INTEGER},
 			</if>
-			<if test="record.psIshot != null">
-				ps_ishot = #{record.psIshot,jdbcType=INTEGER},
-			</if>
-			<if test="record.psDate != null">
-				ps_date = #{record.psDate,jdbcType=DATE},
-			</if>
-			<if test="record.psAddress != null">
-				ps_address = #{record.psAddress,jdbcType=VARCHAR},
-			</if>
-			<if test="record.psGoal != null">
-				ps_goal = #{record.psGoal,jdbcType=VARCHAR},
-			</if>
 			<if test="record.psDays != null">
 				ps_days = #{record.psDays,jdbcType=INTEGER},
 			</if>
-			<if test="record.psVideo != null">
-				ps_video = #{record.psVideo,jdbcType=VARCHAR},
-			</if>
-			<if test="record.psStory != null">
-				ps_story = #{record.psStory,jdbcType=VARCHAR},
-			</if>
-			<if test="record.psSupport != null">
-				ps_support = #{record.psSupport,jdbcType=VARCHAR},
-			</if>
-			<if test="record.psRepay != null">
-				ps_repay = #{record.psRepay,jdbcType=VARCHAR},
-			</if>
-			<if test="record.psAboutme != null">
-				ps_aboutme = #{record.psAboutme,jdbcType=VARCHAR},
+			<if test="record.psIshot != null">
+				ps_ishot = #{record.psIshot,jdbcType=INTEGER},
 			</if>
 			<if test="record.psStarttime != null">
-				ps_starttime = #{record.psStarttime,jdbcType=DATE},
+				ps_starttime = #{record.psStarttime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="record.psEndtime != null">
 				ps_endtime = #{record.psEndtime,jdbcType=DATE},
+			</if>
+			<if test="record.psCheckSign != null">
+				ps_check_sign = #{record.psCheckSign,jdbcType=VARCHAR},
 			</if>
 		</set>
 		<if test="_parameter != null">
@@ -361,27 +333,39 @@
 	</update>
 	<update id="updateByExample" parameterType="map">
 		update projects
-		set ps_id = #{record.psId,jdbcType=INTEGER},
-		ps_us_id = #{record.psUsId,jdbcType=VARCHAR},
-		ps_pst_id = #{record.psPstId,jdbcType=INTEGER},
-		ps_state_id = #{record.psStateId,jdbcType=INTEGER},
-		ps_name = #{record.psName,jdbcType=VARCHAR},
-		ps_pictureaddress = #{record.psPictureaddress,jdbcType=VARCHAR},
-		ps_money = #{record.psMoney,jdbcType=DOUBLE},
-		ps_getmoney = #{record.psGetmoney,jdbcType=DOUBLE},
-		ps_getpeople = #{record.psGetpeople,jdbcType=INTEGER},
-		ps_ishot = #{record.psIshot,jdbcType=INTEGER},
-		ps_date = #{record.psDate,jdbcType=DATE},
-		ps_address = #{record.psAddress,jdbcType=VARCHAR},
-		ps_goal = #{record.psGoal,jdbcType=VARCHAR},
-		ps_days = #{record.psDays,jdbcType=INTEGER},
-		ps_video = #{record.psVideo,jdbcType=VARCHAR},
-		ps_story = #{record.psStory,jdbcType=VARCHAR},
-		ps_support = #{record.psSupport,jdbcType=VARCHAR},
-		ps_repay = #{record.psRepay,jdbcType=VARCHAR},
-		ps_aboutme = #{record.psAboutme,jdbcType=VARCHAR},
-		ps_starttime = #{record.psStarttime,jdbcType=DATE},
-		ps_endtime = #{record.psEndtime,jdbcType=DATE}
+		set ps_id = #{record.psId,jdbcType=VARCHAR},
+		ps_us_id =
+		#{record.psUsId,jdbcType=VARCHAR},
+		ps_pst_id =
+		#{record.psPstId,jdbcType=INTEGER},
+		ps_state_id =
+		#{record.psStateId,jdbcType=INTEGER},
+		ps_patient_relationship =
+		#{record.psPatientRelationship,jdbcType=VARCHAR},
+		ps_illness_name =
+		#{record.psIllnessName,jdbcType=VARCHAR},
+		ps_name =
+		#{record.psName,jdbcType=VARCHAR},
+		pa_img_name =
+		#{record.paImgName,jdbcType=VARCHAR},
+		ps_story =
+		#{record.psStory,jdbcType=VARCHAR},
+		ps_money =
+		#{record.psMoney,jdbcType=DOUBLE},
+		ps_getmoney =
+		#{record.psGetmoney,jdbcType=DOUBLE},
+		ps_getpeople =
+		#{record.psGetpeople,jdbcType=INTEGER},
+		ps_days =
+		#{record.psDays,jdbcType=INTEGER},
+		ps_ishot =
+		#{record.psIshot,jdbcType=INTEGER},
+		ps_starttime =
+		#{record.psStarttime,jdbcType=TIMESTAMP},
+		ps_endtime =
+		#{record.psEndtime,jdbcType=DATE},
+		ps_check_sign =
+		#{record.psCheckSign,jdbcType=VARCHAR}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -398,11 +382,21 @@
 			<if test="psStateId != null">
 				ps_state_id = #{psStateId,jdbcType=INTEGER},
 			</if>
+			<if test="psPatientRelationship != null">
+				ps_patient_relationship =
+				#{psPatientRelationship,jdbcType=VARCHAR},
+			</if>
+			<if test="psIllnessName != null">
+				ps_illness_name = #{psIllnessName,jdbcType=VARCHAR},
+			</if>
 			<if test="psName != null">
 				ps_name = #{psName,jdbcType=VARCHAR},
 			</if>
-			<if test="psPictureaddress != null">
-				ps_pictureaddress = #{psPictureaddress,jdbcType=VARCHAR},
+			<if test="paImgName != null">
+				pa_img_name = #{paImgName,jdbcType=VARCHAR},
+			</if>
+			<if test="psStory != null">
+				ps_story = #{psStory,jdbcType=VARCHAR},
 			</if>
 			<if test="psMoney != null">
 				ps_money = #{psMoney,jdbcType=DOUBLE},
@@ -413,79 +407,179 @@
 			<if test="psGetpeople != null">
 				ps_getpeople = #{psGetpeople,jdbcType=INTEGER},
 			</if>
-			<if test="psIshot != null">
-				ps_ishot = #{psIshot,jdbcType=INTEGER},
-			</if>
-			<if test="psDate != null">
-				ps_date = #{psDate,jdbcType=DATE},
-			</if>
-			<if test="psAddress != null">
-				ps_address = #{psAddress,jdbcType=VARCHAR},
-			</if>
-			<if test="psGoal != null">
-				ps_goal = #{psGoal,jdbcType=VARCHAR},
-			</if>
 			<if test="psDays != null">
 				ps_days = #{psDays,jdbcType=INTEGER},
 			</if>
-			<if test="psVideo != null">
-				ps_video = #{psVideo,jdbcType=VARCHAR},
-			</if>
-			<if test="psStory != null">
-				ps_story = #{psStory,jdbcType=VARCHAR},
-			</if>
-			<if test="psSupport != null">
-				ps_support = #{psSupport,jdbcType=VARCHAR},
-			</if>
-			<if test="psRepay != null">
-				ps_repay = #{psRepay,jdbcType=VARCHAR},
-			</if>
-			<if test="psAboutme != null">
-				ps_aboutme = #{psAboutme,jdbcType=VARCHAR},
+			<if test="psIshot != null">
+				ps_ishot = #{psIshot,jdbcType=INTEGER},
 			</if>
 			<if test="psStarttime != null">
-				ps_starttime = #{psStarttime,jdbcType=DATE},
+				ps_starttime = #{psStarttime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="psEndtime != null">
 				ps_endtime = #{psEndtime,jdbcType=DATE},
 			</if>
+			<if test="psCheckSign != null">
+				ps_check_sign = #{psCheckSign,jdbcType=VARCHAR},
+			</if>
 		</set>
-		where ps_id = #{psId,jdbcType=INTEGER}
+		where ps_id = #{psId,jdbcType=VARCHAR}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.fengbo.bean.Projects">
 		update projects
 		set ps_us_id = #{psUsId,jdbcType=VARCHAR},
-		ps_pst_id = #{psPstId,jdbcType=INTEGER},
-		ps_state_id = #{psStateId,jdbcType=INTEGER},
-		ps_name = #{psName,jdbcType=VARCHAR},
-		ps_pictureaddress = #{psPictureaddress,jdbcType=VARCHAR},
-		ps_money = #{psMoney,jdbcType=DOUBLE},
-		ps_getmoney = #{psGetmoney,jdbcType=DOUBLE},
-		ps_getpeople = #{psGetpeople,jdbcType=INTEGER},
-		ps_ishot = #{psIshot,jdbcType=INTEGER},
-		ps_date = #{psDate,jdbcType=DATE},
-		ps_address = #{psAddress,jdbcType=VARCHAR},
-		ps_goal = #{psGoal,jdbcType=VARCHAR},
-		ps_days = #{psDays,jdbcType=INTEGER},
-		ps_video = #{psVideo,jdbcType=VARCHAR},
+		ps_pst_id =
+		#{psPstId,jdbcType=INTEGER},
+		ps_state_id =
+		#{psStateId,jdbcType=INTEGER},
+		ps_patient_relationship =
+		#{psPatientRelationship,jdbcType=VARCHAR},
+		ps_illness_name =
+		#{psIllnessName,jdbcType=VARCHAR},
+		ps_name =
+		#{psName,jdbcType=VARCHAR},
+		pa_img_name =
+		#{paImgName,jdbcType=VARCHAR},
 		ps_story = #{psStory,jdbcType=VARCHAR},
-		ps_support = #{psSupport,jdbcType=VARCHAR},
-		ps_repay = #{psRepay,jdbcType=VARCHAR},
-		ps_aboutme = #{psAboutme,jdbcType=VARCHAR},
-		ps_starttime = #{psStarttime,jdbcType=DATE},
-		ps_endtime = #{psEndtime,jdbcType=DATE}
-		where ps_id = #{psId,jdbcType=INTEGER}
+		ps_money = #{psMoney,jdbcType=DOUBLE},
+		ps_getmoney =
+		#{psGetmoney,jdbcType=DOUBLE},
+		ps_getpeople =
+		#{psGetpeople,jdbcType=INTEGER},
+		ps_days = #{psDays,jdbcType=INTEGER},
+		ps_ishot = #{psIshot,jdbcType=INTEGER},
+		ps_starttime =
+		#{psStarttime,jdbcType=TIMESTAMP},
+		ps_endtime =
+		#{psEndtime,jdbcType=DATE},
+		ps_check_sign =
+		#{psCheckSign,jdbcType=VARCHAR}
+		where ps_id = #{psId,jdbcType=VARCHAR}
 	</update>
 
 	<select id="getHotProjects" resultMap="BaseResultMap">
-		SELECT * FROM projects pro LEFT JOIN projectsstate pros ON
-		pro.ps_state_id=pros.st_id WHERE pro.ps_ishot=1 LIMIT 0,8;
+		SELECT * FROM projects pro
+		LEFT JOIN projectsstate pros ON
+		pro.ps_state_id=pros.st_id WHERE
+		pro.ps_ishot=1 AND ps_state_id=2 LIMIT 0,8;
 	</select>
 
 	<select id="getNewProjects" resultMap="BaseResultMap">
-		SELECT * FROM projects pro LEFT JOIN projectsstate pros ON
-		pro.ps_state_id=pros.st_id ORDER BY ps_date DESC LIMIT 0,8;
+		SELECT * FROM projects pro
+		LEFT JOIN projectsstate pros ON
+		pro.ps_state_id=pros.st_id WHERE
+		ps_state_id=2 ORDER BY
+		ps_starttime DESC LIMIT 0,8;
 	</select>
+
+	<select id="getReadyProjects" resultMap="BaseResultMap">
+		SELECT * FROM projects
+		pro
+		LEFT JOIN projectsstate pros ON
+		pro.ps_state_id=pros.st_id WHERE
+		pro.ps_state_id=1 LIMIT 0,4;
+	</select>
+
+	<select id="getSucProjects" resultMap="BaseResultMap">
+		SELECT * FROM projects pro
+		LEFT JOIN projectsstate pros ON
+		pro.ps_state_id=pros.st_id WHERE
+		pro.ps_state_id=3 LIMIT 0,4;
+	</select>
+
+	<select id="getAllProjects" resultMap="BaseResultMap">
+		SELECT * FROM
+		projects pro LEFT JOIN USER u ON pro.ps_us_id=u.us_id LEFT JOIN
+		projectstype pst ON pro.ps_pst_id=pst.pst_id LEFT JOIN projectsstate
+		pss ON pro.ps_state_id=pss.st_id
+	</select>
+
+	<select id="getPojectByPstId" resultMap="BaseResultMap">
+		SELECT * FROM projects
+		pro
+		LEFT JOIN projectsstate pros ON
+		pro.ps_state_id=pros.st_id where
+		ps_pst_id=#{psPstId,jdbcType=INTEGER}
+	</select>
+
+	<select id="getOneDetailBypsId" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select *
+		from projects p LEFT JOIN user u ON
+		p.ps_us_id=u.us_id
+		where ps_id = #{psId,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="addProject" parameterType="com.fengbo.bean.Projects">
+		insert into projects
+		(ps_id,
+		ps_us_id, ps_pst_id,
+		ps_state_id, ps_patient_relationship,
+		ps_illness_name,
+		ps_name, pa_img_name, ps_story,
+		ps_money, ps_getmoney,
+		ps_getpeople,
+		ps_days, ps_ishot, ps_starttime,
+		ps_endtime,
+		ps_check_sign)
+		values (#{psId,jdbcType=VARCHAR},
+		#{psUsId,jdbcType=VARCHAR},
+		#{psPstId,jdbcType=INTEGER},
+		1,
+		#{psPatientRelationship,jdbcType=VARCHAR},
+		#{psIllnessName,jdbcType=VARCHAR},
+		#{psName,jdbcType=VARCHAR},
+		#{paImgName,jdbcType=VARCHAR},
+		#{psStory,jdbcType=VARCHAR},
+		0,
+		0,
+		#{psGetpeople,jdbcType=INTEGER},
+		#{psDays,jdbcType=INTEGER},
+		0,
+		#{psStarttime,jdbcType=TIMESTAMP},
+		#{psEndtime,jdbcType=DATE}, 0)
+	</insert>
+
+	<select id="getAllCheckProjects" resultMap="BaseResultMap">
+		SELECT * FROM
+		projects pro LEFT JOIN USER u ON pro.ps_us_id=u.us_id LEFT JOIN
+		projectstype pst ON pro.ps_pst_id=pst.pst_id WHERE pro.ps_state_id=1
+		AND pro.ps_check_sign=0
+	</select>
+
+	<update id="checkProjectsPass" parameterType="com.fengbo.bean.Projects">
+		UPDATE projects
+		SET
+		ps_state_id =
+		2,
+		ps_starttime=
+		NOW(),
+		ps_endtime =
+		DATE_ADD(NOW(),INTERVAL
+		ps_days DAY),
+		ps_check_sign =
+		1
+		WHERE ps_id =#{psId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="checkProjectsNoPass" parameterType="com.fengbo.bean.Projects">
+		UPDATE projects
+		SET
+		ps_check_sign =
+		2
+		WHERE ps_id =#{psId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="addMoney" parameterType="com.fengbo.bean.Projects">
+		UPDATE projects
+		SET
+		ps_getmoney = ps_getmoney + #{psGetmoney,jdbcType=DOUBLE},
+		ps_getpeople = ps_getpeople + 1
+		WHERE ps_id =#{psId,jdbcType=VARCHAR}
+	</update>
+
+
+
 
 
 </mapper>

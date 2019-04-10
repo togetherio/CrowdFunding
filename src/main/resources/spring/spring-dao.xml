@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- 配置整合mybatis过程 -->
 	<!-- 1.配置数据库相关参数properties的属性：${url} -->
-	<context:property-placeholder location="classpath:jdbc.properties" />
+	<context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
 	<!-- 2.数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driverClassName}" />
@@ -36,6 +36,24 @@
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
 		<!--扫描entity包 -->
 		<property name="typeAliasesPackage" value="com.fengbo.bean" />
+				<!-- 引入pagehelper分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+							helperDialect=mysql
+							reasonable=true
+							supportMethodsArguments=true
+							params=count=countSql
+							autoRuntimeDialect=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+		
+		
 	</bean>
 
 	<!--4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->

@@ -9,25 +9,8 @@
 </head>
 <body>
 	<div id="bottom">
-		<div class="bot-con1">
-			<ul>
-				<li class="bot-con1-li1">我们已经做到</li>
-				<li>单项支持人数<span class="inde-span1"></span></li>
-				<li>单项筹款金额<span class="inde-span2"></span></li>
-				<li>累计筹款金额<span class="inde-span3"></span></li>
-			</ul>
-		</div>
-		<div class="bot-con1 bot-con2">
-			<ul>
-				<li class="bot-con1-li1">发起项目流程</li>
-				<li><span class="inde-span4"></span>发起人创建项目</li>
-				<li><span class="inde-span5"></span>项目获得支持</li>
-				<li><span class="inde-span6"></span>发起人发放回报</li>
-				<li><span class="inde-span7"></span>用户收到回报</li>
-			</ul>
-		</div>
 		<div class="bottom-ggt">
-			<a href=""><img src="images/bottbom_68.jpg" alt="" /></a>
+			<a href=""><img src="imgs/bottbom_68.jpg" alt="" /></a>
 		</div>
 		<div class="zc-yqlink">
 			<ul>
@@ -62,6 +45,7 @@
 				data-spm-protocol="i">增值电信业务经营许可证：<a href="">浙B2-20080224-1</a></span>
 			<b>|</b> <span>信息网络传播视听节目许可证：1109364号</span> <b>|</b> <span>举报电话:0571-81683755</span>
 		</div>
-	</div>s
+	</div>
+	s
 </body>
 </html>

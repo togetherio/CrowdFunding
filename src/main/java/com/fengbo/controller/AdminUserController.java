@@ -25,7 +25,9 @@ public class AdminUserController {
 	@Resource
 	private UserService userService;
 	
-	
+	/*获取待审核用户
+	 * 
+	 */
 	@RequestMapping("getCheckUser")
 	@ResponseBody
 	public List<Object> getCheckUser(HttpServletRequest req) throws IOException {
@@ -34,7 +36,7 @@ public class AdminUserController {
 		List<User> users = userService.selectBySign(1);
 		for (User user : users) {
 			List<Object> list = new ArrayList<>();
-			String FaceImg = "f:/CrowdFunding/images/FaceImg/"+user.getUsId()+".jpg";
+			/*String FaceImg = "f:/CrowdFunding/images/FaceImg/"+user.getUsId()+".jpg";
 			String IdCardImg = "f:/CrowdFunding/images/IdCardImg/"+user.getUsId()+".jpg";
 			byte[] faceImg = FileUtil.readFileByBytes(FaceImg);
 			byte[] idCardImg = FileUtil.readFileByBytes(IdCardImg);
@@ -44,14 +46,27 @@ public class AdminUserController {
 			list.add(user);
 			list.add(faceImgBase64);
 			list.add(idCardImgBase64);
+			ll.add(list);*/
+			
+			String FaceImg = "FaceImg/"+user.getUsId()+".jpg";
+			String IdCardImg = "IdCardImg/"+user.getUsId()+".jpg";
+			
+			list.add(user);
+			list.add(FaceImg);
+			list.add(IdCardImg);
 			ll.add(list);
+			
 
 		}	 
 		return ll;
 	}
 	
+	/*
+	 * 获取身份证上的详细信息
+	 */
 	@RequestMapping("smshDetail")
 	public String smshDetail(String usId,HttpServletRequest req) {
+		System.out.println("=========="+usId);
 		String imgUrl = "F:/CrowdFunding/images/IdCardImg/"+usId+".jpg";
 		User userIdCardDetail = IdCardUtil.getIdCardMessage(imgUrl);
 		req.getSession().setAttribute("userIdCardDetail", userIdCardDetail);

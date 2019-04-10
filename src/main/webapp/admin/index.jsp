@@ -15,28 +15,17 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="index.jsp">首页</a></li>
+					<li class="active"><a href="javascript:void(0)">首页</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li><a href="products.html">所有项目*</a></li>
-					<li><a href="#">项目审核</a></li>
-					<li><a href="#">项目跟踪</a></li>
-					<li><a href="#">项目评论</a></li>
-					<li><a href="classify/all_classity.html">项目分类*</a></li>
-					<li><a href="#">项目推荐</a></li>
+					<li><a href="all_projects.jsp">所有项目</a></li>
+					<li><a href="check_project.jsp">项目审核</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li><a href="">注册用户</a></li>
-					<li><a href="">用户资金</a></li>
-					<li><a href="">用户日志</a></li>
+					<li><a href="all_users.jsp">所有用户</a></li>
 					<li><a href="smsh.jsp">实名审核</a></li>
 				</ul>
-				<ul class="nav nav-sidebar">
-					<li><a href="">新闻管理</a></li>
-					<li><a href="">问题管理</a></li>
-					<li><a href="">管理用户</a></li>
-					<li><a href="">管理日志</a></li>
-				</ul>
+				
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h1 class="page-header">今日众筹</h1>

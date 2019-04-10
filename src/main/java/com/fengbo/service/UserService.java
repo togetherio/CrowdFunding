@@ -29,6 +29,11 @@ public interface UserService {
 	boolean checkPass(String usId);
   	//审核不通过
 	boolean checkNopass(String usID);
+	
+	List<User> getAllUsers();
+	
+	boolean changeInfo(String usUsername,String usPassword,String usPhone,String usId);
+	
 
 
 }

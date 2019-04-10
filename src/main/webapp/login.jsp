@@ -29,6 +29,7 @@
 	});
 
 	function check(obj) {
+		console.log(obj)
 		if (obj.usPhone.value != "" && obj.usPassword.value != "") {
 			return true;
 		}

@@ -17,7 +17,7 @@ public class IdCardUtil {
 
 	public static User getIdCardMessage(String imgUrl){
         String idcardIdentificate = "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard";
-        String access_token = "24.1f8c27942df9c026c2d41e3d4fd0fd0f.2592000.1556720355.282335-15910201";
+        String access_token = "24.bae522baa20eadb0bcf37fff6671e926.2592000.1557501340.282335-15910201";
         
         User user = new User();
         

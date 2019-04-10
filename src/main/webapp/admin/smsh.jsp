@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="css/dashboard.css" />
 
 <style type="text/css">
+
+.table th, .table td { 
+text-align: center;
+vertical-align: middle!important;
+}
+
 #tbody img {
 	cursor: pointer;
 	transition: all 0.6s;
@@ -29,12 +35,12 @@
 					dataType : 'json',
 					success : function(returnData) {
 						 console.log(returnData);
-						 /*console.log(returnData[0][0].usId);
-						console.log(returnData.length) */
-						/* console.log(atob(returnData[0][1])) */
-						/* console.log(returnData[0][1]) */
 						$(returnData).each(function(index,item){
-							console.log(item)
+							//把图片从base64直接转换成图片
+							/* "<img src='data:image/jpg;base64,"+item[2]+"' width='45px' height='30px'/>" */
+							
+							console.log(item);
+							
 							var tr = "<tr style='text-align:center'>" + "<td>"
 							+ item[0].usId
 							+ "</td>"
@@ -48,10 +54,10 @@
 							+ item[0].usCreateTime
 							+ "</td>"
 							+ "<td>"
-							+ "<img src='data:image/jpg;base64,"+item[1]+"' width='45px' height='30px'/>"
+							+ "<img src='/CrowdFunding/images/"+item[1]+"' width='45px' height='30px'/>"
 							+ "</td>"
 							+ "<td>"
-							+ "<img src='data:image/jpg;base64,"+item[2]+"' width='45px' height='30px'/>"
+							+ "<img src='/CrowdFunding/images/"+item[2]+"' width='45px' height='30px'/>"
 							+ "</td>"
 							+ "<td><a href='${pageContext.request.contextPath}/smshDetail?usId="
 							+ item[0].usId
@@ -102,7 +108,7 @@
 						console.log(returnData);
 						console.log(returnData.passSign);
 						if(returnData.passSign == true){
-							console.log(this)
+							console.log(this);
 							/* $(this).parent().parent().remove(); */
 							history.go(0)
 							
@@ -140,27 +146,15 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li><a href="index.html">首页</a></li>
+					<li><a href="index.jsp">首页</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li><a href="products.html">所有项目*</a></li>
-					<li><a href="#">项目审核</a></li>
-					<li><a href="#">项目跟踪</a></li>
-					<li><a href="#">项目评论</a></li>
-					<li><a href="classify/all_classity.html">项目分类*</a></li>
-					<li><a href="#">项目推荐</a></li>
+					<li><a href="all_projects.jsp">所有项目</a></li>
+					<li><a href="check_project.jsp">项目审核</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li><a href="">注册用户</a></li>
-					<li><a href="">用户资金</a></li>
-					<li><a href="">用户日志</a></li>
+					<li><a href="all_users.jsp">所有用户</a></li>
 					<li class="active"><a href="javascript:void(0)">实名审核</a></li>
-				</ul>
-				<ul class="nav nav-sidebar">
-					<li><a href="">新闻管理</a></li>
-					<li><a href="">问题管理</a></li>
-					<li><a href="">管理用户</a></li>
-					<li><a href="">管理日志</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -177,7 +171,7 @@
 							<table class="table table-striped table-bordered">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>用户ID</th>
 										<th>用户名</th>
 										<th>手机号</th>
 										<th>注册时间</th>

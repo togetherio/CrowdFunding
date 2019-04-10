@@ -1,53 +1,89 @@
 package com.fengbo.bean;
 
 import java.util.Date;
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Projects {
-    private Integer psId;
+	private String psId;
 
-    private String psUsId;
+	private String psUsId;
 
-    private Integer psPstId;
+	private Integer psPstId;
 
-    private Integer psStateId;
+	private Integer psStateId;
 
-    private String psName;
+	private String psCheckSign;
 
-    private String psPictureaddress;
+	private String psPatientRelationship;
 
-    private Double psMoney;
+	private String psIllnessName;
 
-    private Double psGetmoney;
+	private String psName;
 
-    private Integer psGetpeople;
+	private String psStory;
 
-    private Integer psIshot;
+	private Double psMoney;
 
-    private Date psDate;
+	private Double psGetmoney;
 
-    private String psAddress;
+	private Integer psGetpeople;
 
-    private String psGoal;
+	private Integer psDays;
 
-    private Integer psDays;
+	private Integer psIshot;
 
-    private String psVideo;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date psStarttime;
 
-    private String psStory;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date psEndtime;
 
-    private String psSupport;
+	private String paImgName;
 
-    private String psRepay;
+	// projectsstate
+	private String stName;
 
-    private String psAboutme;
+	// User
+	private String usUsername;
+	private String usSex;
+	private String usAddress;
 
-    private Date psStarttime;
+	// Projectstype
+	private String pstName;
 
-    private Date psEndtime;
-    
-    private String stName;
-    
+	public String getPstName() {
+		return pstName;
+	}
+
+	public void setPstName(String pstName) {
+		this.pstName = pstName;
+	}
+
+	public String getUsUsername() {
+		return usUsername;
+	}
+
+	public void setUsUsername(String usUsername) {
+		this.usUsername = usUsername;
+	}
+
+	public String getUsSex() {
+		return usSex;
+	}
+
+	public void setUsSex(String usSex) {
+		this.usSex = usSex;
+	}
+
+	public String getUsAddress() {
+		return usAddress;
+	}
+
+	public void setUsAddress(String usAddress) {
+		this.usAddress = usAddress;
+	}
+
 	public String getStName() {
 		return stName;
 	}
@@ -56,171 +92,151 @@ public class Projects {
 		this.stName = stName;
 	}
 
-	public Integer getPsId() {
-        return psId;
-    }
+	public String getPsId() {
+		return psId;
+	}
 
-    public void setPsId(Integer psId) {
-        this.psId = psId;
-    }
+	public void setPsId(String psId) {
+		this.psId = psId == null ? null : psId.trim();
+	}
 
-    public String getPsUsId() {
-        return psUsId;
-    }
+	public String getPsUsId() {
+		return psUsId;
+	}
 
-    public void setPsUsId(String psUsId) {
-        this.psUsId = psUsId == null ? null : psUsId.trim();
-    }
+	public void setPsUsId(String psUsId) {
+		this.psUsId = psUsId == null ? null : psUsId.trim();
+	}
 
-    public Integer getPsPstId() {
-        return psPstId;
-    }
+	public Integer getPsPstId() {
+		return psPstId;
+	}
 
-    public void setPsPstId(Integer psPstId) {
-        this.psPstId = psPstId;
-    }
+	public void setPsPstId(Integer psPstId) {
+		this.psPstId = psPstId;
+	}
 
-    public Integer getPsStateId() {
-        return psStateId;
-    }
+	public Integer getPsStateId() {
+		return psStateId;
+	}
 
-    public void setPsStateId(Integer psStateId) {
-        this.psStateId = psStateId;
-    }
+	public void setPsStateId(Integer psStateId) {
+		this.psStateId = psStateId;
+	}
 
-    public String getPsName() {
-        return psName;
-    }
+	public String getPsCheckSign() {
+		return psCheckSign;
+	}
 
-    public void setPsName(String psName) {
-        this.psName = psName == null ? null : psName.trim();
-    }
+	public void setPsCheckSign(String psCheckSign) {
+		this.psCheckSign = psCheckSign;
+	}
 
-    public String getPsPictureaddress() {
-        return psPictureaddress;
-    }
+	public String getPsPatientRelationship() {
+		return psPatientRelationship;
+	}
 
-    public void setPsPictureaddress(String psPictureaddress) {
-        this.psPictureaddress = psPictureaddress == null ? null : psPictureaddress.trim();
-    }
+	public void setPsPatientRelationship(String psPatientRelationship) {
+		this.psPatientRelationship = psPatientRelationship == null ? null : psPatientRelationship.trim();
+	}
 
-    public Double getPsMoney() {
-        return psMoney;
-    }
+	public String getPsIllnessName() {
+		return psIllnessName;
+	}
 
-    public void setPsMoney(Double psMoney) {
-        this.psMoney = psMoney;
-    }
+	public void setPsIllnessName(String psIllnessName) {
+		this.psIllnessName = psIllnessName == null ? null : psIllnessName.trim();
+	}
 
-    public Double getPsGetmoney() {
-        return psGetmoney;
-    }
+	public String getPsName() {
+		return psName;
+	}
 
-    public void setPsGetmoney(Double psGetmoney) {
-        this.psGetmoney = psGetmoney;
-    }
+	public void setPsName(String psName) {
+		this.psName = psName == null ? null : psName.trim();
+	}
 
-    public Integer getPsGetpeople() {
-        return psGetpeople;
-    }
+	public String getPsStory() {
+		return psStory;
+	}
 
-    public void setPsGetpeople(Integer psGetpeople) {
-        this.psGetpeople = psGetpeople;
-    }
+	public void setPsStory(String psStory) {
+		this.psStory = psStory == null ? null : psStory.trim();
+	}
 
-    public Integer getPsIshot() {
-        return psIshot;
-    }
+	public Double getPsMoney() {
+		return psMoney;
+	}
 
-    public void setPsIshot(Integer psIshot) {
-        this.psIshot = psIshot;
-    }
+	public void setPsMoney(Double psMoney) {
+		this.psMoney = psMoney;
+	}
 
-    public Date getPsDate() {
-        return psDate;
-    }
+	public Double getPsGetmoney() {
+		return psGetmoney;
+	}
 
-    public void setPsDate(Date psDate) {
-        this.psDate = psDate;
-    }
+	public void setPsGetmoney(Double psGetmoney) {
+		this.psGetmoney = psGetmoney;
+	}
 
-    public String getPsAddress() {
-        return psAddress;
-    }
+	public Integer getPsGetpeople() {
+		return psGetpeople;
+	}
 
-    public void setPsAddress(String psAddress) {
-        this.psAddress = psAddress == null ? null : psAddress.trim();
-    }
+	public void setPsGetpeople(Integer psGetpeople) {
+		this.psGetpeople = psGetpeople;
+	}
 
-    public String getPsGoal() {
-        return psGoal;
-    }
+	public Integer getPsDays() {
+		return psDays;
+	}
 
-    public void setPsGoal(String psGoal) {
-        this.psGoal = psGoal == null ? null : psGoal.trim();
-    }
+	public void setPsDays(Integer psDays) {
+		this.psDays = psDays;
+	}
 
-    public Integer getPsDays() {
-        return psDays;
-    }
+	public Integer getPsIshot() {
+		return psIshot;
+	}
 
-    public void setPsDays(Integer psDays) {
-        this.psDays = psDays;
-    }
+	public void setPsIshot(Integer psIshot) {
+		this.psIshot = psIshot;
+	}
 
-    public String getPsVideo() {
-        return psVideo;
-    }
+	public Date getPsStarttime() {
+		return psStarttime;
+	}
 
-    public void setPsVideo(String psVideo) {
-        this.psVideo = psVideo == null ? null : psVideo.trim();
-    }
+	public void setPsStarttime(Date psStarttime) {
+		this.psStarttime = psStarttime;
+	}
 
-    public String getPsStory() {
-        return psStory;
-    }
+	public Date getPsEndtime() {
+		return psEndtime;
+	}
 
-    public void setPsStory(String psStory) {
-        this.psStory = psStory == null ? null : psStory.trim();
-    }
+	public void setPsEndtime(Date psEndtime) {
+		this.psEndtime = psEndtime;
+	}
 
-    public String getPsSupport() {
-        return psSupport;
-    }
+	public String getPaImgName() {
+		return paImgName;
+	}
 
-    public void setPsSupport(String psSupport) {
-        this.psSupport = psSupport == null ? null : psSupport.trim();
-    }
+	public void setPaImgName(String paImgName) {
+		this.paImgName = paImgName == null ? null : paImgName.trim();
+	}
 
-    public String getPsRepay() {
-        return psRepay;
-    }
+	@Override
+	public String toString() {
+		return "Projects [psId=" + psId + ", psUsId=" + psUsId + ", psPstId=" + psPstId + ", psStateId=" + psStateId
+				+ ", psCheckSign=" + psCheckSign + ", psPatientRelationship=" + psPatientRelationship
+				+ ", psIllnessName=" + psIllnessName + ", psName=" + psName + ", psStory=" + psStory + ", psMoney="
+				+ psMoney + ", psGetmoney=" + psGetmoney + ", psGetpeople=" + psGetpeople + ", psDays=" + psDays
+				+ ", psIshot=" + psIshot + ", psStarttime=" + psStarttime + ", psEndtime=" + psEndtime + ", paImgName="
+				+ paImgName + ", stName=" + stName + ", usUsername=" + usUsername + ", usSex=" + usSex + ", usAddress="
+				+ usAddress + ", pstName=" + pstName + "]";
+	}
 
-    public void setPsRepay(String psRepay) {
-        this.psRepay = psRepay == null ? null : psRepay.trim();
-    }
-
-    public String getPsAboutme() {
-        return psAboutme;
-    }
-
-    public void setPsAboutme(String psAboutme) {
-        this.psAboutme = psAboutme == null ? null : psAboutme.trim();
-    }
-
-    public Date getPsStarttime() {
-        return psStarttime;
-    }
-
-    public void setPsStarttime(Date psStarttime) {
-        this.psStarttime = psStarttime;
-    }
-
-    public Date getPsEndtime() {
-        return psEndtime;
-    }
-
-    public void setPsEndtime(Date psEndtime) {
-        this.psEndtime = psEndtime;
-    }
 }

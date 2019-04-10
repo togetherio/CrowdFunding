@@ -51,4 +51,8 @@ public interface UserMapper {
   	User checkPass(String usId);
   	//审核不通过
   	User checkNopass(String usID);
+  	
+  	//修改基本信息
+  	int changeInfo(@Param("usUsername") String usUsername,@Param("usPassword") String usPassword,@Param("usPhone") String usPhone,@Param("usId")String usId);
+  	
 }

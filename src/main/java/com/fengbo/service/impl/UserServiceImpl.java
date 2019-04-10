@@ -101,6 +101,21 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
+	@Override
+	public List<User> getAllUsers() {
+		List<User> selectByExample = userMapper.selectByExample(null);
+		return selectByExample;
+	}
+
+	@Override
+	public boolean changeInfo(String usUsername,String usPassword,String usPhone,String usId) {
+		int changeInfo = userMapper.changeInfo(usUsername, usPassword, usPhone, usId);
+		if(changeInfo > 0) {
+			return true;
+		}
+		return false;
+	}
+
 	
 
 }

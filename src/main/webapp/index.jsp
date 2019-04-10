@@ -5,76 +5,153 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/base.css" type="text/css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/headbott.css" type="text/css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css" type="text/css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
-<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/base.css" type="text/css" />
+<link rel="stylesheet" href="css/headbott.css" type="text/css" />
+<link rel="stylesheet" href="css/index.css" type="text/css" />
+<link rel="stylesheet" href="css/swiper.min.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 
-		<script type="text/javascript">
-			$(function(){
-				$.ajax({
-					type:'GET',
-					url:'getProjects',
-					dataType:'json',
-					success:function(returnData){
+<script type="text/javascript">
+	$(function() {
+		$
+				.ajax({
+					type : 'GET',
+					url : 'getProjects',
+					dataType : 'json',
+					success : function(returnData) {
 						console.log(returnData)
-						$(returnData.newProjects).each(function(index,item){
-							var newProjects = "<li>"+
-								"<div class='index-plidiv1'>"+
-									"<a href=''><img src='${pageContext.request.contextPath}/images/"+item.psPictureaddress+"' width='237px' height='155px' alt='' /></a>"+
-									"<div class='index-p_dkz'>"+item.stName+"</div>"+
-								"</div>"+
-								"<p><a href=''>"+item.psName+"</a></p>"+
-								"<div class='index-pli-bot'>"+
-									"<dl>"+
-										"<dt>"+item.psMoney+"</dt>"+
-										"<dd>目标金额</dd>"+
-									"</dl>"+
-									"<dl>"+
-										"<dt>"+item.psGetmoney+"</dt>"+
-										"<dd>已筹金额</dd>"+
-									"</dl>"+
-									"<dl>"+
-										"<dt>"+item.psGetpeople+"</dt>"+
-										"<dd>支持人数</dd>"+
-									"</dl>"+
-								"</div>"+
-							"</li>";
-								$("#new").append(newProjects);
-						});
-						
-						$(returnData.hotProjects).each(function(index,item){	
-							var hotProjects = "<li>"+
-								"<div class='index-plidiv1'>"+
-									"<a href=''><img src='${pageContext.request.contextPath}/images/"+item.psPictureaddress+"' width='237px' height='155px' alt='' /></a>"+
-									"<div class='index-p_dkz'>"+item.stName+"</div>"+
-								"</div>"+
-								"<p><a href=''>"+item.psName+"</a></p>"+
-								"<div class='index-pli-bot'>"+
-									"<dl>"+
-										"<dt>"+item.psMoney+"</dt>"+
-										"<dd>目标金额</dd>"+
-									"</dl>"+
-									"<dl>"+
-										"<dt>"+item.psGetmoney+"</dt>"+
-										"<dd>已筹金额</dd>"+
-									"</dl>"+
-									"<dl>"+
-										"<dt>"+item.psGetpeople+"</dt>"+
-										"<dd>支持人数</dd>"+
-									"</dl>"+
-								"</div>"+
-							"</li>";
-								$("#hot").append(hotProjects);
-						});
+						$(returnData.newProjects)
+								.each(
+										function(index, item) {
+											var achieceRate = parseInt((item.psGetmoney / item.psMoney) * 100);
+											var newProjects = "<li>"
+													+ "<div class='index-plidiv1'>"
+													+ "<a href='getOneDetailBypsId?psId="+item.psId+"'><img src='/CrowdFunding/images/projects/"+item.paImgName+"' width='237px' height='155px' alt='' /></a>"
+													+ "<div class='index-p_dkz'>"
+													+ item.stName
+													+ "</div>"
+													+ "</div>"
+													+ "<p><a href='getOneDetailBypsId?psId="+item.psId+"'>"
+													+ item.psName
+													+ "</a></p>"
+													+ "<div class='index-pli-bot'>"
+													+ "<dl>"
+													+ "<dt>"
+													+ achieceRate
+													+ "%</dt>"
+													+ "<dd>达成率</dd>"
+													+ "</dl>"
+													+ "<dl>"
+													+ "<dt>"
+													+ item.psGetmoney
+													+ "</dt>"
+													+ "<dd>已筹金额</dd>"
+													+ "</dl>"
+													+ "<dl>"
+													+ "<dt>"
+													+ item.psGetpeople
+													+ "</dt>"
+													+ "<dd>支持人数</dd>"
+													+ "</dl>"
+													+ "</div>"
+													+ "</li>";
+											$("#new").append(newProjects);
+										});
+
+						$(returnData.hotProjects)
+								.each(
+										function(index, item) {
+											var achieceRate = parseInt((item.psGetmoney / item.psMoney) * 100);
+											var hotProjects = "<li>"
+													+ "<div class='index-plidiv1'>"
+													+ "<a href='getOneDetailBypsId?psId="+item.psId+"'><img src='/CrowdFunding/images/projects/"+item.paImgName+"' width='237px' height='155px' alt='' /></a>"
+													+ "<div class='index-p_dkz'>"
+													+ item.stName
+													+ "</div>"
+													+ "</div>"
+													+ "<p><a href='getOneDetailBypsId?psId="+item.psId+"'>"
+													+ item.psName
+													+ "</a></p>"
+													+ "<div class='index-pli-bot'>"
+													+ "<dl>"
+													+ "<dt>"
+													+ achieceRate
+													+ "%</dt>"
+													+ "<dd>达成率</dd>"
+													+ "</dl>"
+													+ "<dl>"
+													+ "<dt>"
+													+ item.psGetmoney
+													+ "</dt>"
+													+ "<dd>已筹金额</dd>"
+													+ "</dl>"
+													+ "<dl>"
+													+ "<dt>"
+													+ item.psGetpeople
+													+ "</dt>"
+													+ "<dd>支持人数</dd>"
+													+ "</dl>"
+													+ "</div>"
+													+ "</li>";
+											$("#hot").append(hotProjects);
+										});
 					}
 				});
-			})
-		</script>
+
+			$.ajax({
+					type : 'GET',
+					url : 'getReadyProjects',
+					dataType : 'json',
+					success : function(returnData) {
+						console.log(returnData)
+						$(returnData).each(function(index, item){
+							var li = "<li>"
+								+ "<div class='index-jjkscon1'>"
+								+ "<a href='getOneDetailBypsId?psId="+item.psId+"'><img src='/CrowdFunding/images/projects/"+item.paImgName+"' width='238' height='155' /></a>"
+								+ "<div class='index-j_dkz'>"+item.stName+"</div>"
+								+ "</div>" + "<div>"
+								+ "<a href='getOneDetailBypsId?psId="+item.psId+"'>"+item.psName+"</a>"
+								+ "</div>" + "<div>"
+								+ "<i>目标金额：<span>"+item.psMoney+"</span></i>"
+								+ "</div>"
+								+ "</li>";
+							$("#ready").append(li);
+						});
+						
+
+					}
+				});
+			
+			$.ajax({
+				type : 'GET',
+				url : 'getSucProjects',
+				dataType : 'json',
+				success : function(returnData) {
+					console.log(returnData)
+					$(returnData).each(function(index, item){
+						var li = "<li>"
+							+ "<div class='index-jjkscon1'>"
+							+ "<a href='getOneDetailBypsId?psId="+item.psId+"'><img src='/CrowdFunding/images/projects/"+item.paImgName+"' width='238' height='155' /></a>"
+							+ "<div class='index-j_dkz'>"+item.stName+"</div>"
+							+ "</div>" + "<div>"
+							+ "<a href='getOneDetailBypsId?psId="+item.psId+"'>"+item.psName+"</a>"
+							+ "</div>" + "<div>"
+							+ "<i>已获得：<span>"+item.psGetmoney+"</span></i>"
+							+ "<b>支持人数<span>"+item.psGetpeople+"</span></b>" + "</div>"
+							+ "</li>";
+						$("#suc").append(li);
+					});
+					
+					
+					
+
+				}
+			});
+	})
+</script>
 
 </head>
 <body>
@@ -85,10 +162,10 @@
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<img src="${pageContext.request.contextPath}/images/1525661829.jpg">
+				<img src="imgs/banner1.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img src="${pageContext.request.contextPath}/images/1525661991.png">
+				<img src="imgs/banner2.png">
 			</div>
 		</div>
 		<!-- Add Pagination -->
@@ -98,18 +175,18 @@
 		<div class="swiper-button-prev"></div>
 	</div>
 
-		
+
 
 	<div class="content">
-	
+
 		<div class="index-mrjxtit">最新项目</div>
-		
+
 		<div class="index-mrjx">
 
- 			<div class="index-mrjx_botto">
+			<div class="index-mrjx_botto">
 				<div class="index-pruduct">
 					<ul id="new">
-<!-- 						<li>
+						<!-- 						<li>
 							<div class="index-plidiv1">
 								<a href=""><img src="images/pruduct2_34.jpg" width="237px"
 									height="155px" alt="" /></a>
@@ -135,19 +212,19 @@
 						</li> -->
 
 					</ul>
- 				</div>
+				</div>
 			</div>
 		</div>
-		
+
 		<div class="ggt2">
-			<a href=""><img src="images/ggt2_39.jpg" alt="" /></a>
+			<img src="imgs/ggt2_39.jpg" alt="" />
 		</div>
 
 		<div class="index-mrjxtit">最热项目</div>
-		
+
 		<div class="index-mrjx">
 
- 			<div class="index-mrjx_botto">
+			<div class="index-mrjx_botto">
 				<div class="index-pruduct">
 					<ul id="hot">
 						<!-- <li>
@@ -175,12 +252,12 @@
 							</div>
 						</li> -->
 					</ul>
- 				</div>
+				</div>
 			</div>
 		</div>
-		
+
 		<div class="ggt2">
-			<a href=""><img src="images/ggt2_39.jpg" alt="" /></a>
+			<img src="imgs/ggt2_39.jpg" alt="" />
 		</div>
 
 
@@ -190,8 +267,8 @@
 
 			<div class="index-jjkstit">即将开始</div>
 			<div class="index-jjkscon">
-				<ul>
-					<li>
+				<ul id="ready">
+					<!-- 					<li>
 						<div class="index-jjkscon1">
 							<a href=""><img src="images/producc_47.jpg" width="238"
 								height="155" alt="" /></a>
@@ -203,58 +280,23 @@
 						<div>
 							<i>目标金额：<span>50000.00</span></i><b>上线日期<span>06/03</span></b>
 						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>目标金额：<span>50000.00</span></i><b>上线日期<span>06/03</span></b>
-						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>目标金额：<span>50000.00</span></i><b>上线日期<span>06/03</span></b>
-						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>目标金额：<span>50000.00</span></i><b>上线日期<span>06/03</span></b>
-						</div>
-					</li>
+					</li> -->
+
+
+
+
 				</ul>
 			</div>
 		</div>
 		<div class="ggt2 ggt3">
-			<a href=""><img src="images/ggt2_39.jpg" alt="" /></a>
+			<img src="imgs/ggt2_39.jpg" alt="" />
 		</div>
 		<div class="index-jjks">
 
 			<div class="index-jjkstit">成功案例</div>
 			<div class="index-jjkscon">
-				<ul>
-					<li>
+				<ul id="suc">
+					<!-- <li>
 						<div class="index-jjkscon1">
 							<a href=""><img src="images/producc_47.jpg" width="238"
 								height="155" alt="" /></a>
@@ -266,55 +308,16 @@
 						<div>
 							<i>已获得：<span>50000.00</span></i><b>支持人数<span>5888</span></b>
 						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>已获得：<span>50000.00</span></i><b>支持人数<span>5888</span></b>
-						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>已获得：<span>50000.00</span></i><b>支持人数<span>5888</span></b>
-						</div>
-					</li>
-					<li>
-						<div class="index-jjkscon1">
-							<a href=""><img src="images/producc_47.jpg" width="238"
-								height="155" alt="" /></a>
-							<div class="index-j_dkz">预热中</div>
-						</div>
-						<div>
-							<a href="">NGDS新游戏手柄 手机一秒变游戏机</a>
-						</div>
-						<div>
-							<i>已获得：<span>50000.00</span></i><b>支持人数<span>5888</span></b>
-						</div>
-					</li>
+					</li> -->
+
+
+	
 				</ul>
 			</div>
 		</div>
-		<div class="ggt2 ggt3">
-			<a href=""><img src="images/ggt2_39.jpg" alt="" /></a>
-		</div>
 	</div>
 
-	
+
 
 	<jsp:include page="footer.jsp"></jsp:include>
 
